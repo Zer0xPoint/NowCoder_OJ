@@ -15,7 +15,8 @@
 # 如：输入为3，有序数列第3项的值为2，则输出为2
 n = int(input())
 i = 1
+counter = 1
 while i < n:
-    i += 1
-    print(i)
-print(i)
+    counter += 1
+    i += counter * i
+print(counter)
