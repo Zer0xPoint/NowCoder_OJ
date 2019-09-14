@@ -30,7 +30,7 @@ for x in matrix[0] + matrix[2]:  # 所有x轴的坐标
         count = 0
         for i in range(n):
             if matrix[0][i] <= x <= matrix[2][i] and matrix[1][i] <= y <= matrix[3][i]:
-                # 若存在两个坐标满足条件，则证明两个矩形在（x，y）有交点
+                # 若存在两个坐标满足条件，则证明两个矩形在（y，y）有交点
                 # 两个相交矩形的交点坐标肯定在它们x轴，y轴的集合之中
                 count += 1
         res = max(count, res)  # 若count超过之前记录的res，则替换res
