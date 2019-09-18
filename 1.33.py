@@ -19,10 +19,20 @@
 # 输出
 #
 # 6
-m = int(input())
-n = int(input())
-x = int(input())
-y = int(input())
-K = int(input())
 
 
+def rec_ham(i, j, left_steps):
+    if i < 0 or j < 0 or i >= m or j >= n:  # 走出田地范围
+        return 1
+    if left_steps == 0:  # 步数耗尽 未走出田地
+        return 0
+    return rec_ham(i + 1, j, left_steps - 1) + \
+           rec_ham(i - 1, j, left_steps - 1) + \
+           rec_ham(i, j + 1, left_steps - 1) + \
+           rec_ham(i, j - 1, left_steps - 1)
+
+
+m, n, x, y, K = [int(input()) for _ in range(5)]
+
+print(rec_ham(x, y, K))
+# todo DP
