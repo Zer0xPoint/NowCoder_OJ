@@ -16,3 +16,18 @@
 n_list = input()
 
 # todo
+# 分别计算移动所有C和移动所有D需要的步数 取其中较小的一个作为结果
+move_C_cost = 0
+move_D_cost = 0
+count_C = 0
+count_D = 0
+n = len(n_list)
+for i in range(n):
+    if n_list[i] == 'C':
+        move_C_cost += i - count_C
+        count_C += 1
+    else:
+        move_D_cost += i - count_D
+        count_D += 1
+
+print(min(move_C_cost, move_D_cost))
