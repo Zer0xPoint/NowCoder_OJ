@@ -16,3 +16,20 @@
 # 输出
 #
 # 4
+
+ai = int(input())
+bi = [list(map(int, input().split())) for _ in range(ai)]
+bi.sort(key=lambda x: x[1])  # 依照区间的最右边界排序
+
+# 保存排序后bi的第一个区间的最右边界-1和最右边界
+# 因为一个区间最少包含两个数 且因为数组以最右边界排序
+# 故下一个区间包括最右边两个数的概率最大
+res_list = [bi[0][1] - 1, bi[0][1]]
+for b in bi:
+    # 当b区间的左边界 等于或大于 所保存的右边界时 都需要将右边界更新为b的右边界
+    if b[0] >= res_list[-1]:
+        # 大于右边界 代表超过了界限 需要向结果中添加b的右边界-1（因为访b问不到res_list的倒数第二个元素 故放入任意元素均可）
+        if b[0] > res_list[-1]:
+            res_list.append(b[1] - 1)
+        res_list.append(b[1])
+print(len(res_list))

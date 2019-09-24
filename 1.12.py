@@ -26,7 +26,7 @@ for i in range(n):
         pre_sum += a[i]
         a[i] = 0
     # else:
-    #     t[i] = a[i]
+    #     T[i] = a[i]
 max_sum = 0
 for i in range(n):
     if a[i] != 0:
