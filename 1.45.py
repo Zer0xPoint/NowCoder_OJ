@@ -17,12 +17,12 @@
 # 距离目的地2， 需要3步：朝向走1，背向走2，朝向走3
 
 T = int(input())
-N_list = [1]
-count = 1
-while N_list[count - 1] < abs(T):
+n_sum = 0
+count = 0
+while True:
     count += 1
-    N_list.append(N_list[-1] + count)
-if (N_list[-1] - T) % 2 == 0:
-    print(count)
-else:
-    print(-1)
+    n_sum += count
+    if n_sum >= T and (n_sum - T) % 2 == 0:
+        break
+print(count)
+
