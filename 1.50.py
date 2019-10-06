@@ -16,3 +16,15 @@
 # 输出
 #
 # 19
+n = int(input())
+f_matrix = [list(map(int, input().split(','))) for _ in range(n)]
+
+# arr = [[f_matrix[j][i] for i in range(n)] for j in range(n)]
+for i in range(1, n):
+    f_matrix[i][0] += f_matrix[i - 1][0]
+    f_matrix[0][i] += f_matrix[0][i - 1]
+
+for i in range(1, n):
+    for j in range(1, n):
+        f_matrix[i][j] += min(f_matrix[i - 1][j], f_matrix[i][j - 1])
+print(f_matrix[-1][-1])
